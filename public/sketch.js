@@ -5,9 +5,8 @@ let minSensitivity = 0, maxSensitivity = 1;
 let uiTimeout;
 let audioInputSelect, video1Select, video2Select, video1BlendDropdown, video2BlendDropdown, playPauseButton;
 
-function preload() {
+function preload() {   
     img = loadImage("DJ-ER_BG.png");
-    mic = new p5.AudioIn();
     song = loadSound("Demo_Track.mp3");
     video1 = createVideo(['Sample_Video1.mp4'], videoLoadCallback);
     video2 = createVideo(['Sample_Video2.mp4'], videoLoadCallback);
@@ -20,10 +19,11 @@ function setup() {
     angleMode(DEGREES);
     imageMode(CENTER);
     rectMode(CENTER);
+    mic = new p5.AudioIn();
+    mic.start();
     fft = new p5.FFT(0.8, 512);
     img.filter(BLUR, 1);
 
-    mic.start();
     setupUI();
     uiTimeout = millis();
 

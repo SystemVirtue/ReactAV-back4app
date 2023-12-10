@@ -132,13 +132,13 @@ function drawAudioVisualizer() {
 }
 
 function drawVideos() {
-    if (video1 && video1.width > 0) {
+    if (video1) {
         let blendMode1 = video1BlendDropdown.value();
         changeBlendMode(blendMode1);
         image(video1, 0, 0, width, height);
     }
 
-    if (video2 && video2.width > 0) {
+    if (video2) {
         let blendMode2 = video2BlendDropdown.value();
         changeBlendMode(blendMode2);
         image(video2, 0, 0, width, height);
@@ -151,12 +151,57 @@ function changeBlendMode(mode) {
         case 'ADD':
             p5BlendMode = ADD;
             break;
-        // ... handle other cases similarly ...
+        case 'BLEND':
+            p5BlendMode = BLEND;
+            break;
+        case 'DARKEST':
+            p5BlendMode = DARKEST;
+            break;
+        case 'LIGHTEST':
+            p5BlendMode = LIGHTEST;
+            break;
+        case 'DIFFERENCE':
+            p5BlendMode = DIFFERENCE;
+            break;
+        case 'EXCLUSION':
+            p5BlendMode = EXCLUSION;
+            break;
+        case 'MULTIPLY':
+            p5BlendMode = MULTIPLY;
+            break;
+        case 'SCREEN':
+            p5BlendMode = SCREEN;
+            break;
+        case 'REPLACE':
+            p5BlendMode = REPLACE;
+            break;
+        case 'OVERLAY':
+            p5BlendMode = OVERLAY;
+            break;
+        case 'HARD_LIGHT':
+            p5BlendMode = HARD_LIGHT;
+            break;
+        case 'SOFT_LIGHT':
+            p5BlendMode = SOFT_LIGHT;
+            break;
+        case 'DODGE':
+            p5BlendMode = DODGE;
+            break;
+        case 'BURN':
+            p5BlendMode = BURN;
+            break;
+        case 'SUBTRACT':
+            p5BlendMode = SUBTRACT;
+            break;
+        case 'THRESHOLD':
+            p5BlendMode = THRESHOLD;
+            break;
         default:
             p5BlendMode = BLEND;
     }
     blendMode(p5BlendMode);
 }
+
 
 function handleUIVisibility() {
     if (millis() - uiTimeout > 5000) {
